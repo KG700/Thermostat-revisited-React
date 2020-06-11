@@ -1,9 +1,10 @@
 import React from 'react';
+import './Temperature.css';
 
 const Temperature = (props) => {
   return (
-    <div>
-      <h1 className="temperature">{props.value}</h1>
+    <div className="Temperature">
+        {props.value}
     </div>
   )
 }
