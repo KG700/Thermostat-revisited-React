@@ -15,6 +15,14 @@ function App() {
         value={'+'}
       />
 
+      <Controller
+        value={'-'}
+      />
+
+      <Controller
+        value={'reset'}
+      />
+
     </div>
   );
 }
