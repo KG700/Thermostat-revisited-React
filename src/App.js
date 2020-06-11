@@ -2,6 +2,7 @@ import React from 'react';
 import Temperature from './Temperature/Temperature';
 import Controller from './Controller/Controller';
 import PowerSavingMode from './PowerSavingMode/PowerSavingMode';
+import WeatherCity from './WeatherCity/WeatherCity'
 import './App.css';
 
 function App() {
@@ -25,6 +26,9 @@ function App() {
       />
 
       <PowerSavingMode
+      />
+
+      <WeatherCity
       />
 
     </div>
