@@ -8,29 +8,29 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <div className="thermostat">
+        <Temperature
+          value={20}
+        />
 
-      <Temperature
-        value={20}
-      />
+        <Controller
+          value={'+'}
+        />
 
-      <Controller
-        value={'+'}
-      />
+        <Controller
+          value={'-'}
+        />
 
-      <Controller
-        value={'-'}
-      />
+        <Controller
+          value={'reset'}
+        />
 
-      <Controller
-        value={'reset'}
-      />
+        <PowerSavingMode
+        />
 
-      <PowerSavingMode
-      />
-
-      <WeatherCity
-      />
-
+        <WeatherCity
+        />
+      </div>
     </div>
   );
 }

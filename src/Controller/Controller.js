@@ -5,7 +5,7 @@ const Controller = (props) => {
   return (
     <div>
       <Button
-        variant="outline-secondary"
+        variant="outline-dark"
         size="sm"
       >{props.value}</Button>
     </div>
