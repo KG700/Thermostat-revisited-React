@@ -7,7 +7,8 @@ import './App.css';
 
 class App extends Component {
   state = {
-    temperature: 20
+    temperature: 20,
+    defaultTemperature: 20
   }
 
   up = () => {
@@ -18,6 +19,10 @@ class App extends Component {
   down = () => {
     const currentTemperature = this.state.temperature
     this.setState({ temperature: currentTemperature - 1 })
+  }
+
+  reset = () => {
+    this.setState({ temperature: this.state.defaultTemperature })
   }
 
   render() {
@@ -40,6 +45,7 @@ class App extends Component {
 
           <Controller
             value={'reset'}
+            click={this.reset}
           />
 
           <PowerSavingMode
