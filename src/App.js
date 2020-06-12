@@ -8,6 +8,7 @@ import './App.css';
 class App extends Component {
   state = {
     temperature: 20,
+    powerSavingMode: true,
     defaultTemperature: 20
   }
 
@@ -23,6 +24,11 @@ class App extends Component {
 
   reset = () => {
     this.setState({ temperature: this.state.defaultTemperature })
+  }
+
+  togglePowerSavingModeHandler = () => {
+    const powerSavingModeSwitch = this.state.powerSavingMode;
+    this.setState({ powerSavingMode: !powerSavingModeSwitch })
   }
 
   render() {
@@ -49,6 +55,7 @@ class App extends Component {
           />
 
           <PowerSavingMode
+            click={this.togglePowerSavingModeHandler}
           />
 
           <WeatherCity
