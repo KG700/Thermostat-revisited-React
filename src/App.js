@@ -1,38 +1,50 @@
-import React from 'react';
+import React, { Component } from 'react';
 import Temperature from './Temperature/Temperature';
 import Controller from './Controller/Controller';
 import PowerSavingMode from './PowerSavingMode/PowerSavingMode';
 import WeatherCity from './WeatherCity/WeatherCity'
 import './App.css';
 
-function App() {
-  return (
-    <div className="App">
-      <div className="thermostat">
-        <Temperature
-          value={20}
-        />
+class App extends Component {
+  state = {
+    temperature: 20
+  }
 
-        <Controller
-          value={'+'}
-        />
+  up = () => {
+    const currentTemperature = this.state.temperature
+    this.setState({ temperature: currentTemperature + 1 })
+  }
 
-        <Controller
-          value={'-'}
-        />
+  render() {
+    return (
+      <div className="App">
+        <div className="thermostat">
+          <Temperature
+            value={this.state.temperature}
+          />
 
-        <Controller
-          value={'reset'}
-        />
+          <Controller
+            value={'+'}
+            click={this.up}
+          />
 
-        <PowerSavingMode
-        />
+          <Controller
+            value={'-'}
+          />
 
-        <WeatherCity
-        />
+          <Controller
+            value={'reset'}
+          />
+
+          <PowerSavingMode
+          />
+
+          <WeatherCity
+          />
+        </div>
       </div>
-    </div>
-  );
+    );
+  }
 }
 
 export default App;

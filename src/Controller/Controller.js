@@ -7,6 +7,7 @@ const Controller = (props) => {
       <Button
         variant="outline-dark"
         size="sm"
+        onClick={props.click}
       >{props.value}</Button>
     </div>
   )
