@@ -15,6 +15,11 @@ class App extends Component {
     this.setState({ temperature: currentTemperature + 1 })
   }
 
+  down = () => {
+    const currentTemperature = this.state.temperature
+    this.setState({ temperature: currentTemperature - 1 })
+  }
+
   render() {
     return (
       <div className="App">
@@ -30,6 +35,7 @@ class App extends Component {
 
           <Controller
             value={'-'}
+            click={this.down}
           />
 
           <Controller
