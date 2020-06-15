@@ -13,7 +13,8 @@ class App extends Component {
     minimumTemperature: 10,
     maximumTemperaturePSMOn: 25,
     maximumTemperaturePSMOff: 32,
-    mediumEnergyUsageLimit: 18
+    mediumEnergyUsageLimit: 18,
+    city: 'london'
   }
 
   up = () => {
@@ -90,6 +91,7 @@ class App extends Component {
 
           <br />
           <WeatherCity
+            city={this.state.city}
           />
 
         </div>
