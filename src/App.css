@@ -17,3 +17,15 @@
   border-style: solid white;
   background-color: grey;
 }
+
+.low-usage {
+  background-image: linear-gradient(#226F54, #D7F171);
+}
+
+.medium-usage {
+  background-image: linear-gradient(#658E9C, #F6F7EB);
+}
+
+.high-usage {
+  background-image: linear-gradient(#DA2C38, #F4F0BB);
+}

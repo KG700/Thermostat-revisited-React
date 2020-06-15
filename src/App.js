@@ -9,7 +9,11 @@ class App extends Component {
   state = {
     temperature: 20,
     powerSavingMode: true,
-    defaultTemperature: 20
+    defaultTemperature: 20,
+    minimumTemperature: 10,
+    maximumTemperaturePSMOn: 25,
+    maximumTemperaturePSMOff: 32,
+    mediumEnergyUsageLimit: 18
   }
 
   up = () => {
@@ -31,9 +35,26 @@ class App extends Component {
     this.setState({ powerSavingMode: !powerSavingModeSwitch })
   }
 
+  energyUsage = () => {
+    if (this.state.temperature < this.state.mediumEnergyUsageLimit) {
+      return 'low-usage';
+    }
+    if (this.state.temperature >= this.state.mediumEnergyUsageLimit && this.state.temperature <= this.state.maximumTemperaturePSMOn) {
+      return 'medium-usage';
+    }
+    return 'high-usage';
+  }
+
+
   render() {
+
+    // Try assigning energy usage classes dynamically
+
+    const energyUsageStyles = ["App"];
+    energyUsageStyles.push(this.energyUsage())
+
     return (
-      <div className="App">
+      <div className={energyUsageStyles.join(' ')}>
         <div className="thermostat">
           <Temperature
             value={this.state.temperature}
