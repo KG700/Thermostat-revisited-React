@@ -68,28 +68,30 @@ class App extends Component {
             value={this.state.temperature}
           />
 
-          <Controller
+          <div className="temperature-controls">
+            <Controller
+              value={'-'}
+              click={this.down}
+            />
+
+            <Controller
             value={'+'}
             click={this.up}
-          />
-
-          <Controller
-            value={'-'}
-            click={this.down}
-          />
-
+            />
+          </div>
           <Controller
             value={'reset'}
             click={this.reset}
           />
-
           <PowerSavingMode
             checked={this.state.powerSavingMode}
             click={this.togglePowerSavingModeHandler}
           />
 
+          <br />
           <WeatherCity
           />
+
         </div>
       </div>
     );

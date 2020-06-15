@@ -18,6 +18,11 @@
   background-color: grey;
 }
 
+.temperature-controls {
+  display: flex;
+  flex-direction: row;
+}
+
 .low-usage {
   background-image: linear-gradient(#226F54, #D7F171);
 }
