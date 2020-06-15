@@ -76,6 +76,7 @@ class App extends Component {
           />
 
           <PowerSavingMode
+            checked={this.state.powerSavingMode}
             click={this.togglePowerSavingModeHandler}
           />
 

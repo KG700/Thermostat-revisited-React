@@ -9,8 +9,8 @@ const PowerSavingMode = (props) => {
           type="switch"
           id="custome-switch"
           label="Power Saving Mode"
-          onClick={props.click}
-          checked
+          onChange={props.click}
+          defaultChecked={props.checked}
         />
       </Form>
     </div>
