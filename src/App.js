@@ -38,6 +38,9 @@ class App extends Component {
   togglePowerSavingModeHandler = () => {
     const powerSavingModeSwitch = this.state.powerSavingMode;
     this.setState({ powerSavingMode: !powerSavingModeSwitch })
+    if (!powerSavingModeSwitch && this.state.temperature > this.state.maximumTemperaturePSMOn) {
+      this.setState({ temperature: this.state.maximumTemperaturePSMOn })
+    }
   }
 
   energyUsage = () => {
