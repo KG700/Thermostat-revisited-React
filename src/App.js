@@ -18,7 +18,12 @@ class App extends Component {
 
   up = () => {
     const currentTemperature = this.state.temperature
-    this.setState({ temperature: currentTemperature + 1 })
+    if (this.state.powerSavingMode && currentTemperature < this.state.maximumTemperaturePSMOn) {
+      this.setState({ temperature: currentTemperature + 1 })
+    }
+    if (!this.state.powerSavingMode && currentTemperature < this.state.maximumTemperaturePSMOff) {
+      this.setState({ temperature: currentTemperature + 1 })
+    }
   }
 
   down = () => {
