@@ -31,6 +31,9 @@ class App extends Component {
 
   down = () => {
     const currentTemperature = this.state.temperature
+    if (currentTemperature <= MINIMUM_TEMPERATURE) {
+      return;
+    }
     this.setState({ temperature: currentTemperature - 1 })
   }
 
