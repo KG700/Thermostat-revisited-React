@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import Temperature from './Temperature/Temperature';
-import Controller from './Controller/Controller';
-import PowerSavingMode from './PowerSavingMode/PowerSavingMode';
-import WeatherCity from './WeatherCity/WeatherCity'
-import './App.css';
+
+import Temperature from '../components/Temperature/Temperature';
+import Controller from '../components/Controller/Controller';
+import PowerSavingMode from '../components/PowerSavingMode/PowerSavingMode';
+import WeatherCity from '../components/WeatherCity/WeatherCity'
+import classes from './App.module.css';
 
 class App extends Component {
   state = {
@@ -46,12 +47,12 @@ class App extends Component {
 
   energyUsage = () => {
     if (this.state.temperature < this.state.mediumEnergyUsageLimit) {
-      return 'low-usage';
+      return classes.LowUsage;
     }
     if (this.state.temperature >= this.state.mediumEnergyUsageLimit && this.state.temperature <= this.state.maximumTemperaturePSMOn) {
-      return 'medium-usage';
+      return classes.MediumUsage;
     }
-    return 'high-usage';
+    return classes.HighUsage;
   }
 
 
@@ -59,17 +60,17 @@ class App extends Component {
 
     // Try assigning energy usage classes dynamically
 
-    const energyUsageStyles = ["App"];
+    const energyUsageStyles = [classes.App];
     energyUsageStyles.push(this.energyUsage())
 
     return (
       <div className={energyUsageStyles.join(' ')}>
-        <div className="thermostat">
+        <div className={classes.Thermostat}>
           <Temperature
             value={this.state.temperature}
           />
 
-          <div className="temperature-controls">
+          <div className={classes.TemperatureControls}>
             <Controller
               value={'-'}
               click={this.down}

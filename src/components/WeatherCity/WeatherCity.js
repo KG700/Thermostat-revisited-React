@@ -1,6 +1,6 @@
 import React from 'react';
 import { Col, Row, Form } from 'react-bootstrap';
-import './WeatherCity.css';
+import classes from './WeatherCity.module.css';
 
 const WeatherCity = (props) => {
 
@@ -12,11 +12,11 @@ const WeatherCity = (props) => {
   // });
 
   return (
-    <div>
+    <div className={classes.Weather}>
       <Form>
         <Row>
           <Col xs={4.4}>
-            <h2 className='weather'>Temperature in</h2>
+            <h2>Temperature in</h2>
           </Col>
           <Col xs={5}>
             <Form.Control as="select" size="sm" custom>
@@ -27,7 +27,7 @@ const WeatherCity = (props) => {
             </Form.Control>
           </Col>
           <Col>
-            <h2 className='weather'>is {10}&#8451;</h2>
+            <h2>is {10}&#8451;</h2>
           </Col>
         </Row>
       </Form>

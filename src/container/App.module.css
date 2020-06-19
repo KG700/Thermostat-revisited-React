@@ -6,7 +6,7 @@
   background-image: linear-gradient(#658E9C, #F6F7EB);
 }
 
-.thermostat {
+.Thermostat {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -18,19 +18,19 @@
   background-color: grey;
 }
 
-.temperature-controls {
+.TemperatureControls {
   display: flex;
   flex-direction: row;
 }
 
-.low-usage {
+.LowUsage {
   background-image: linear-gradient(#226F54, #D7F171);
 }
 
-.medium-usage {
+.MediumUsage {
   background-image: linear-gradient(#658E9C, #F6F7EB);
 }
 
-.high-usage {
+.HighUsage {
   background-image: linear-gradient(#DA2C38, #F4F0BB);
 }
