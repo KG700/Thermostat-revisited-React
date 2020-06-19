@@ -19,7 +19,7 @@ class App extends Component {
     city: 'london'
   }
 
-  up = () => {
+  upHandler = () => {
     const currentTemperature = this.state.temperature
     if (this.state.powerSavingMode && currentTemperature < MAXIMUM_TEMPERATURE_PSM_ON) {
       this.setState({ temperature: currentTemperature + 1 })
@@ -29,7 +29,7 @@ class App extends Component {
     }
   }
 
-  down = () => {
+  downHandler = () => {
     const currentTemperature = this.state.temperature
     if (currentTemperature <= MINIMUM_TEMPERATURE) {
       return;
@@ -37,7 +37,7 @@ class App extends Component {
     this.setState({ temperature: currentTemperature - 1 })
   }
 
-  reset = () => {
+  resetHandler = () => {
     this.setState({ temperature: DEFAULT_TEMPERATURE })
   }
 
@@ -77,17 +77,17 @@ class App extends Component {
           <div className={classes.TemperatureControls}>
             <Controller
               value={'-'}
-              click={this.down}
+              click={this.downHandler}
             />
 
             <Controller
             value={'+'}
-            click={this.up}
+            click={this.upHandler}
             />
           </div>
           <Controller
             value={'reset'}
-            click={this.reset}
+            click={this.resetHandler}
           />
           <PowerSavingMode
             checked={this.state.powerSavingMode}
