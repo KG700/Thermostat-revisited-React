@@ -62,6 +62,7 @@ class App extends Component {
 
   resetHandler = () => {
     this.setState({ temperature: DEFAULT_TEMPERATURE })
+    this.updateTemperature(DEFAULT_TEMPERATURE);
   }
 
   togglePowerSavingModeHandler = () => {
