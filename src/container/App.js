@@ -19,6 +19,11 @@ class App extends Component {
     city: 'london'
   }
 
+  componentDidMount () {
+    console.log('[App.js] did mount');
+    
+  }
+
   upHandler = () => {
     const currentTemperature = this.state.temperature
     if (this.state.powerSavingMode && currentTemperature < MAXIMUM_TEMPERATURE_PSM_ON) {
