@@ -25,11 +25,11 @@ class App extends Component {
     axios.get('/all')
           .then(response => {
             console.log(response)
-            // this.setState({
-            //   temperature: response.data.temperature,
-            //   powerSavingMode: response.data.powerSavingMode,
-            //   city: response.data.city
-            // });
+            this.setState({
+              temperature: response.data.temperature,
+              powerSavingMode: response.data.powerSavingMode,
+              city: response.data.city
+            });
           })
           .catch(error => {
             console.log(error);
