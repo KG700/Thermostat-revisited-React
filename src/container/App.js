@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 import classes from './App.module.css';
+import axios from '../axios';
 import Temperature from '../components/Temperature/Temperature';
 import Controller from '../components/Controller/Controller';
 import PowerSavingMode from '../components/PowerSavingMode/PowerSavingMode';
@@ -14,14 +15,26 @@ const MEDIUM_ENERGY_USAGE_LIMIT = 18;
 
 class App extends Component {
   state = {
-    temperature: DEFAULT_TEMPERATURE,
-    powerSavingMode: true,
-    city: 'london'
+    temperature: null,
+    powerSavingMode: null,
+    city: null
   }
 
   componentDidMount () {
     console.log('[App.js] did mount');
-    
+    axios.get('/all')
+          .then(response => {
+            console.log(response)
+            // this.setState({
+            //   temperature: response.data.temperature,
+            //   powerSavingMode: response.data.powerSavingMode,
+            //   city: response.data.city
+            // });
+          })
+          .catch(error => {
+            console.log(error);
+          })
+
   }
 
   upHandler = () => {
