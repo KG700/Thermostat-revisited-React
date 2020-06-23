@@ -10,7 +10,10 @@ class ThermostatApp < Sinatra::Base
   end
 
   before do
+    # content_type :json
     response.headers['Access-Control-Allow-Origin'] = '*'
+    # response.headers["Access-Control-Allow-Methods"] = "POST"
+    # response.headers['Access-Control-Allow-Methods'] = ['OPTIONS', 'GET', 'POST']
   end
 
   get "/" do
@@ -26,9 +29,19 @@ class ThermostatApp < Sinatra::Base
     }.to_json
   end
 
-  # options "*" do
-  #   response.headers["Access-Control-Allow-Origin"] = "*"
-  # end
+  post "/temperature" do
+    thermostat = Thermostat.instance
+    data = JSON.parse(request.body.read)
+    thermostat.update_temperature(data["temperature"])
+    { status: 200 }.to_json
+  end
+
+  options "*" do
+    response.headers["Allow"] = "GET, PUT, POST, DELETE, OPTIONS"
+    response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"
+    response.headers["Access-Control-Allow-Origin"] = "*"
+    200
+  end
 
   run! if app_file == $0
 end

@@ -40,7 +40,9 @@ class App extends Component {
   upHandler = () => {
     const currentTemperature = this.state.temperature
     if (this.state.powerSavingMode && currentTemperature < MAXIMUM_TEMPERATURE_PSM_ON) {
-      this.setState({ temperature: currentTemperature + 1 })
+      const newTemperature = currentTemperature + 1
+      this.setState({ temperature: newTemperature })
+      this.updateTemperature(newTemperature)
     }
     if (!this.state.powerSavingMode && currentTemperature <  MAXIMUM_TEMPERATURE_PSM_OFF) {
       this.setState({ temperature: currentTemperature + 1 })
@@ -77,6 +79,14 @@ class App extends Component {
     return classes.HighUsage;
   }
 
+  updateTemperature = (temperature) => {
+    const data = {
+      temperature: temperature
+    };
+    axios.post('/temperature', data)
+          .then(response => console.log(response))
+          .catch(error => console.log(error));
+  }
 
   render() {
 
