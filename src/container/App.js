@@ -39,13 +39,15 @@ class App extends Component {
 
   upHandler = () => {
     const currentTemperature = this.state.temperature
+    const newTemperature = currentTemperature + 1
     if (this.state.powerSavingMode && currentTemperature < MAXIMUM_TEMPERATURE_PSM_ON) {
-      const newTemperature = currentTemperature + 1
       this.setState({ temperature: newTemperature })
       this.updateTemperature(newTemperature)
     }
     if (!this.state.powerSavingMode && currentTemperature <  MAXIMUM_TEMPERATURE_PSM_OFF) {
-      this.setState({ temperature: currentTemperature + 1 })
+      this.setState({ temperature: newTemperature });
+      this.updateTemperature(newTemperature)
+
     }
   }
 
@@ -55,6 +57,7 @@ class App extends Component {
       return;
     }
     this.setState({ temperature: currentTemperature - 1 })
+    this.updateTemperature(currentTemperature - 1);
   }
 
   resetHandler = () => {
