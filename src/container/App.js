@@ -14,7 +14,7 @@ const MEDIUM_ENERGY_USAGE_LIMIT = 18;
 
 class App extends Component {
   state = {
-    temperature: 20,
+    temperature: DEFAULT_TEMPERATURE,
     powerSavingMode: true,
     city: 'london'
   }
