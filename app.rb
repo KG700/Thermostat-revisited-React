@@ -43,6 +43,13 @@ class ThermostatApp < Sinatra::Base
     { status: 200 }.to_json
   end
 
+  post "/city" do
+    thermostat = Thermostat.instance
+    data = JSON.parse(request.body.read)
+    thermostat.update_city(data["city"])
+    { status: 200 }.to_json
+  end
+
   options "*" do
     response.headers["Allow"] = "GET, PUT, POST, DELETE, OPTIONS"
     response.headers["Access-Control-Allow-Headers"] = "Authorization, Content-Type, Accept, X-User-Email, X-Auth-Token"

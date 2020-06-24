@@ -24,11 +24,6 @@ class App extends Component {
     }
     this.initialiseState();
   }
-  // state = {
-  //   temperature: null,
-  //   powerSavingMode: null,
-  //   city: ''
-  // }
 
   initialiseState () {
     console.log('[App.js] initialiseState')
@@ -88,9 +83,11 @@ class App extends Component {
     }
   }
 
-  selectCityHandler = () => {
+  selectCityHandler = (event) => {
     console.log('[App.js] selectCityHandler')
-
+    console.log(event.target.value)
+    this.setState({ city: event.target.value })
+    this.updateCity(event.target.value)
   }
 
   energyUsage = () => {
@@ -120,6 +117,16 @@ class App extends Component {
       powerSavingMode: mode
     };
     axios.post('/power-saving-mode', data)
+          .then(response => console.log(response))
+          .catch(error => console.log(error));
+  }
+
+  updateCity = (city) => {
+    console.log('[App.js] updateCity')
+    const data = {
+      city: city
+    };
+    axios.post('/city', data)
           .then(response => console.log(response))
           .catch(error => console.log(error));
   }
