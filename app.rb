@@ -22,8 +22,6 @@ class ThermostatApp < Sinatra::Base
 
   get "/all" do
     thermostat = Thermostat.instance
-    # p "for get: thermostat powersaving mode is:"
-    # p thermostat.power_saving_mode
     {
       temperature: thermostat.temperature,
       powerSavingMode: thermostat.power_saving_mode,
@@ -41,10 +39,7 @@ class ThermostatApp < Sinatra::Base
   post "/power-saving-mode" do
     thermostat = Thermostat.instance
     data = JSON.parse(request.body.read)
-    # p data
     thermostat.update_power_saving_mode(data["powerSavingMode"])
-    # p "after post: thermostat powersaving mode is:"
-    # p thermostat.power_saving_mode
     { status: 200 }.to_json
   end
 

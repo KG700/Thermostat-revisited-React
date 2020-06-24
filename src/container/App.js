@@ -21,10 +21,8 @@ class App extends Component {
   }
 
   componentDidMount () {
-    console.log('[App.js] did mount');
     axios.get('/all')
           .then(response => {
-            // console.log(response)
             this.setState({
               temperature: response.data.temperature,
               powerSavingMode: response.data.powerSavingMode,
@@ -66,10 +64,7 @@ class App extends Component {
   }
 
   togglePowerSavingModeHandler = (event) => {
-    // console.log("PSM switch was switched!")
-    // console.log("event: ", event.target.checked)
     const powerSavingModeSwitch = this.state.powerSavingMode;
-    // console.log('[App.js] PSMSwitch is:', powerSavingModeSwitch)
     this.setState({ powerSavingMode: event.target.checked })
     this.updatePowerSavingMode(event.target.checked)
     if (!powerSavingModeSwitch && this.state.temperature > MAXIMUM_TEMPERATURE_PSM_ON) {
@@ -98,7 +93,6 @@ class App extends Component {
   }
 
   updatePowerSavingMode = (mode) => {
-    console.log("updating power saving mode with", mode)
     const data = {
       powerSavingMode: mode
     };
