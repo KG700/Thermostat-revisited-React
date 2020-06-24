@@ -6,6 +6,7 @@ import Temperature from '../components/Temperature/Temperature';
 import Controller from '../components/Controller/Controller';
 import PowerSavingMode from '../components/PowerSavingMode/PowerSavingMode';
 import WeatherCity from '../components/WeatherCity/WeatherCity'
+import Spinner from '../components/Spinner/Spinner'
 
 const DEFAULT_TEMPERATURE = 20;
 const MINIMUM_TEMPERATURE = 10;
@@ -172,7 +173,9 @@ class App extends Component {
             selected={this.selectCityHandler}
           />
 
+
         </div>
+        <Spinner />
       </div>
     );
   }
