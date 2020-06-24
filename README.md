@@ -20,3 +20,4 @@ Select a city in the drop down box to show the current temperature of that city.
 ### Future developments:
 1. Update with tests.
 2. Add a Spinner component to handle slight delays when api calls are being made
+3. Sort out the sizing of text when browser size changes
