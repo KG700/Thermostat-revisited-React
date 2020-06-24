@@ -21,7 +21,8 @@ class App extends Component {
     this.state = {
       temperature: null,
       powerSavingMode: null,
-      city: 'london'
+      city: 'london',
+      loading: true
     }
     this.initialiseState();
   }
@@ -33,12 +34,14 @@ class App extends Component {
             this.setState({
               temperature: response.data.temperature,
               powerSavingMode: response.data.powerSavingMode,
-              city: response.data.city
+              city: response.data.city,
+              loading: false
             });
           })
           .catch(error => {
             console.log(error);
           })
+    // this.setState({ loading: false })
 
   }
 
@@ -142,40 +145,45 @@ class App extends Component {
 
     return (
       <div className={energyUsageStyles.join(' ')}>
-        <div className={classes.Thermostat}>
-          <Temperature
-            value={this.state.temperature}
-          />
+      <div className={classes.Thermostat}>
+        { this.state.loading
+          ?
+          <Spinner />
+          :
+            <>
+              <Temperature
+                value={this.state.temperature}
+              />
 
-          <div className={classes.TemperatureControls}>
-            <Controller
-              value={'-'}
-              click={this.downHandler}
-            />
+              <div className={classes.TemperatureControls}>
+                <Controller
+                  value={'-'}
+                  click={this.downHandler}
+                />
 
-            <Controller
-            value={'+'}
-            click={this.upHandler}
-            />
-          </div>
-          <Controller
-            value={'reset'}
-            click={this.resetHandler}
-          />
-          <PowerSavingMode
-            checked={this.state.powerSavingMode}
-            click={this.togglePowerSavingModeHandler}
-          />
+                <Controller
+                value={'+'}
+                click={this.upHandler}
+                />
+              </div>
+              <Controller
+                value={'reset'}
+                click={this.resetHandler}
+              />
+              <PowerSavingMode
+                checked={this.state.powerSavingMode}
+                click={this.togglePowerSavingModeHandler}
+              />
 
-          <br />
-          <WeatherCity
-            city={this.state.city}
-            selected={this.selectCityHandler}
-          />
+              <br />
+              <WeatherCity
+                city={this.state.city}
+                selected={this.selectCityHandler}
+              />
+            </>
 
-
-        </div>
-        <Spinner />
+        }
+      </div>
       </div>
     );
   }
