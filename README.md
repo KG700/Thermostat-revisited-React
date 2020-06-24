@@ -15,7 +15,8 @@ The temperature can be updated between the range of 10 - 32 degrees. By switchin
 
 The thermostat will indicate your energy usage by displaying a green background if the temperature is below 18 degrees, neutral grey if it's between 18 and 25 degrees, and red if it's above the 25 degrees.
 
+Select a city in the drop down box to show the current temperature of that city.
+
 ### Future developments:
-1. Finish creating Sinatra backend
-2. Link temperature to Open Weather API to return the temperature of the selected city.
-3. Update with tests.
+1. Update with tests.
+2. Add a Spinner component to handle slight delays when api calls are being made
