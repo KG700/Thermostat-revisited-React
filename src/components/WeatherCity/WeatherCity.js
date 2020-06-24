@@ -20,10 +20,12 @@ const WeatherCity = (props) => {
           </Col>
           <Col xs={5}>
             <Form.Control as="select" size="sm" custom>
-              <option value="london">London</option>
-              <option value="newyork">New York</option>
-              <option value="paris">Paris</option>
-              <option value="tokyo">Tokyo</option>
+              <select value={props.city} onChange={props.selected}>
+                <option value="london">London</option>
+                <option value="newyork">New York</option>
+                <option value="paris">Paris</option>
+                <option value="tokyo">Tokyo</option>
+              </select>
             </Form.Control>
           </Col>
           <Col>

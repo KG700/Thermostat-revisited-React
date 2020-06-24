@@ -2,6 +2,7 @@ import React from 'react';
 import Form from 'react-bootstrap/Form';
 
 const PowerSavingMode = (props) => {
+  // console.log('[powerSavingMode.js] render')
   return (
     <div>
       <Form>
