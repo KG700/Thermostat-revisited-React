@@ -20,7 +20,7 @@ class App extends Component {
     this.state = {
       temperature: null,
       powerSavingMode: null,
-      city: ''
+      city: 'london'
     }
     this.initialiseState();
   }
