@@ -95,4 +95,19 @@ describe('<App />', () => {
     expect(wrapper.state().city).toEqual('paris');
   })
 
+  it('will have class LowUsage when temperature is less than 18', () => {
+    wrapper.setState({ temperature: 17 })
+    expect(wrapper.instance().energyUsage()).toEqual("LowUsage");
+  })
+
+  it('will have class LowUsage when temperature is less than 26', () => {
+    wrapper.setState({ temperature: 25 })
+    expect(wrapper.instance().energyUsage()).toEqual("MediumUsage");
+  })
+
+  it('will have class LowUsage when temperature is more than 25', () => {
+    wrapper.setState({ temperature: 26 })
+    expect(wrapper.instance().energyUsage()).toEqual("HighUsage");
+  })
+
 })
