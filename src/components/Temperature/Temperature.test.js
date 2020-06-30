@@ -12,4 +12,10 @@ describe('<Temperature />', () => {
       const wrapper = shallow(<Temperature value={20} />);
       expect(wrapper.html()).toEqual('<div class=\"Temperature\">20</div>')
   })
+
+  it('only contains a div element to render temperature', () => {
+      const wrapper = shallow(<Temperature value={20} />);
+      expect(wrapper.render()).toHaveLength(1)
+  })
+
 })
