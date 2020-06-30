@@ -19,4 +19,11 @@ describe('<PowerSavingMode />', () => {
   it('contains 1 form', () => {
     expect(wrapper.find(Form)).toHaveLength(1);
   });
+
+  it('calls change handler when checkbox is pressed', () => {
+    const mockClickHandler = jest.fn();
+    wrapper.setProps({ click: mockClickHandler });
+    wrapper.find(Form.Check).simulate('change');
+    expect(mockClickHandler.mock.calls.length).toEqual(1);
+  });
 })
