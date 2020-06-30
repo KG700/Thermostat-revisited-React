@@ -88,4 +88,11 @@ describe('<App />', () => {
     expect(wrapper.state().powerSavingMode).toEqual(true);
   })
 
+  it('will turn power saving mode on when previously off', () => {
+    wrapper.setState({ city: 'london' });
+    const event = { target: { value: 'paris' } };
+    wrapper.instance().selectCityHandler(event);
+    expect(wrapper.state().city).toEqual('paris');
+  })
+
 })
