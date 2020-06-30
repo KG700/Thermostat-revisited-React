@@ -8,13 +8,18 @@ import Temperature from './Temperature';
 configure({adapter: new Adapter()});
 
 describe('<Temperature />', () => {
+
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<Temperature value={20} />);
+  })
+
   it('will render 20 when prop value is 20', () => {
-      const wrapper = shallow(<Temperature value={20} />);
       expect(wrapper.html()).toEqual('<div class=\"Temperature\">20</div>')
   })
 
   it('only contains a div element to render temperature', () => {
-      const wrapper = shallow(<Temperature value={20} />);
       expect(wrapper.render()).toHaveLength(1)
   })
 
