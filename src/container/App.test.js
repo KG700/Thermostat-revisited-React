@@ -57,4 +57,10 @@ describe('<App />', () => {
     expect(wrapper.state().temperature).toEqual(19);
   })
 
+  it('resets temperature to default 20 when resetHandler is called', () => {
+    wrapper.setState({ temperature: 21 })
+    wrapper.instance().resetHandler();
+    expect(wrapper.state().temperature).toEqual(20);
+  })
+
 })
