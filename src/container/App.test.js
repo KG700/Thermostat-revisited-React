@@ -81,4 +81,11 @@ describe('<App />', () => {
     expect(wrapper.state().temperature).toEqual(32);
   })
 
+  it('will turn power saving mode on when previously off', () => {
+    wrapper.setState({ powerSavingMode: false });
+    const event = { target: { checked: true } };
+    wrapper.instance().togglePowerSavingModeHandler(event);
+    expect(wrapper.state().powerSavingMode).toEqual(true);
+  })
+
 })
