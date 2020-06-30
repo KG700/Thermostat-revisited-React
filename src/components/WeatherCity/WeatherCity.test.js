@@ -18,6 +18,13 @@ describe('<WeatherCity />', () => {
 
   it('constains 1 Form', () => {
     expect(wrapper.find(Form)).toHaveLength(1);
-
   })
+
+  it('calls change handler when drop down is selected', () => {
+    const mockSelectHandler = jest.fn();
+    wrapper.setProps({ selected: mockSelectHandler })
+    wrapper.find(Form.Control).simulate('change');
+    expect(wrapper.find(Form)).toHaveLength(1);
+  })
+
 })
