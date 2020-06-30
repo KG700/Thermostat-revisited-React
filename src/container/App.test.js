@@ -40,4 +40,9 @@ describe('<App />', () => {
     expect(wrapper.find(PowerSavingMode)).toHaveLength(1);
   });
 
+  it('renders WeatherCity components when loaded', () => {
+    wrapper.setState({ loading: false });
+    expect(wrapper.find(WeatherCity)).toHaveLength(1);
+  });
+
 })
