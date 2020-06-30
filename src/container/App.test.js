@@ -1,0 +1,28 @@
+import React from 'react';
+
+import { configure, shallow } from 'enzyme';
+import Adapter from 'enzyme-adapter-react-16';
+
+import App from './App';
+import Temperature from '../components/Temperature/Temperature';
+import Controller from '../components/Controller/Controller';
+import PowerSavingMode from '../components/PowerSavingMode/PowerSavingMode';
+import WeatherCity from '../components/WeatherCity/WeatherCity';
+import Spinner from '../components/Spinner/Spinner';
+
+configure({adapter: new Adapter()});
+
+describe('<App />', () => {
+
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<App />);
+  });
+
+  it('renders the Spinner component when loading', () => {
+    wrapper.setState({ loading: true });
+    expect(wrapper.find(Spinner)).toHaveLength(1);
+  });
+
+})

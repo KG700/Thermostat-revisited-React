@@ -12,10 +12,11 @@ describe('<Temperature />', () => {
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<Temperature value={20} />);
+    wrapper = shallow(<Temperature />);
   })
 
   it('will render 20 when prop value is 20', () => {
+      wrapper.setProps({value: 20});
       expect(wrapper.html()).toEqual('<div class=\"Temperature\">20</div>')
   })
 
