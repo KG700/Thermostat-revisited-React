@@ -9,8 +9,21 @@ import Button from 'react-bootstrap/Button';
 configure({adapter: new Adapter()});
 
 describe('<Controller />', () => {
-  it('contains 1 button', () => {
-    const wrapper = shallow(<Controller />);
-    expect(wrapper.find(Button)).toHaveLength(1);
+
+  let wrapper;
+
+  beforeEach(() => {
+    wrapper = shallow(<Controller />);
   })
+
+  it('contains 1 button', () => {
+    expect(wrapper.find(Button)).toHaveLength(1);
+  });
+
+  it('calls click handler when button is clicked', () => {
+    const mockClickHandler = jest.fn();
+    wrapper.setProps({ click: mockClickHandler })
+    wrapper.find(Button).simulate('click');
+    expect(mockClickHandler.mock.calls.length).toEqual(1);
+  });
 })
