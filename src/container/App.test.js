@@ -25,4 +25,9 @@ describe('<App />', () => {
     expect(wrapper.find(Spinner)).toHaveLength(1);
   });
 
+  it('renders Temperature components when loaded', () => {
+    wrapper.setState({ loading: false });
+    expect(wrapper.find(Temperature)).toHaveLength(1);
+  });
+
 })
