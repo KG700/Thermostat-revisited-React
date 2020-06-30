@@ -75,4 +75,10 @@ describe('<App />', () => {
     expect(wrapper.state().temperature).toEqual(25);
   })
 
+  it('will not increase temperature above 32 when power saving mode is off', () => {
+    wrapper.setState({ temperature: 32, powerSavingMode: false })
+    wrapper.instance().upHandler();
+    expect(wrapper.state().temperature).toEqual(32);
+  })
+
 })
