@@ -30,9 +30,14 @@ describe('<App />', () => {
     expect(wrapper.find(Temperature)).toHaveLength(1);
   });
 
-  it('renders Temperature components when loaded', () => {
+  it('renders 3 Controller components when loaded', () => {
     wrapper.setState({ loading: false });
     expect(wrapper.find(Controller)).toHaveLength(3);
+  });
+
+  it('renders PowerSavingMode components when loaded', () => {
+    wrapper.setState({ loading: false });
+    expect(wrapper.find(PowerSavingMode)).toHaveLength(1);
   });
 
 })
