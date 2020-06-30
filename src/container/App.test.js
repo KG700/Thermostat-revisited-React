@@ -45,4 +45,10 @@ describe('<App />', () => {
     expect(wrapper.find(WeatherCity)).toHaveLength(1);
   });
 
+  it('increases temperature by 1 when upHandler is called', () => {
+    wrapper.setState({ temperature: 20 })
+    wrapper.instance().upHandler();
+    expect(wrapper.state().temperature).toEqual(21);
+  })
+
 })

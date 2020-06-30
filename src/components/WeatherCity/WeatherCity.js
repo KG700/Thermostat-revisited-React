@@ -53,14 +53,14 @@ class WeatherCity extends Component {
           <Col xs={4.4}>
             <h2>Temperature in</h2>
           </Col>
-            <Col xs={5}>
-              <Form.Control as="select" size="sm" custom value={this.props.city} onChange={this.props.selected}>
-                <option value="london">London</option>
-                <option value="newyork">New York</option>
-                <option value="paris">Paris</option>
-                <option value="tokyo">Tokyo</option>
-              </Form.Control>
-            </Col>
+          <Col xs={5}>
+            <Form.Control as="select" size="sm" custom value={this.props.city} onChange={this.props.selected}>
+              <option value="london">London</option>
+              <option value="newyork">New York</option>
+              <option value="paris">Paris</option>
+              <option value="tokyo">Tokyo</option>
+            </Form.Control>
+          </Col>
           <Col>
             <h2>is {this.state.cityTemperature}&#8451;</h2>
           </Col>
