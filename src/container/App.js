@@ -16,7 +16,7 @@ const MEDIUM_ENERGY_USAGE_LIMIT = 18;
 
 class App extends Component {
   constructor(props) {
-    console.log('[App.js] constructor')
+    // console.log('[App.js] constructor')
     super(props);
     this.state = {
       temperature: null,
@@ -28,7 +28,7 @@ class App extends Component {
   }
 
   initialiseState () {
-    console.log('[App.js] initialiseState')
+    // console.log('[App.js] initialiseState')
     axios.get('/all')
           .then(response => {
             this.setState({
@@ -46,7 +46,7 @@ class App extends Component {
   }
 
   upHandler = () => {
-    console.log('[App.js] upHandler')
+    // console.log('[App.js] upHandler')
     const currentTemperature = this.state.temperature
     const newTemperature = currentTemperature + 1
     if (this.state.powerSavingMode && currentTemperature < MAXIMUM_TEMPERATURE_PSM_ON) {
@@ -61,7 +61,7 @@ class App extends Component {
   }
 
   downHandler = () => {
-    console.log('[App.js] downHandler')
+    // console.log('[App.js] downHandler')
     const currentTemperature = this.state.temperature
     if (currentTemperature <= MINIMUM_TEMPERATURE) {
       return;
@@ -71,13 +71,13 @@ class App extends Component {
   }
 
   resetHandler = () => {
-    console.log('[App.js] resetHandler')
+    // console.log('[App.js] resetHandler')
     this.setState({ temperature: DEFAULT_TEMPERATURE })
     this.updateTemperature(DEFAULT_TEMPERATURE);
   }
 
   togglePowerSavingModeHandler = (event) => {
-    console.log('[App.js] togglePowerSavingModeHandler')
+    // console.log('[App.js] togglePowerSavingModeHandler')
     const powerSavingModeSwitch = this.state.powerSavingMode;
     this.setState({ powerSavingMode: event.target.checked })
     this.updatePowerSavingMode(event.target.checked)
@@ -88,14 +88,14 @@ class App extends Component {
   }
 
   selectCityHandler = (event) => {
-    console.log('[App.js] selectCityHandler')
-    console.log(event.target.value)
+    // console.log('[App.js] selectCityHandler')
+    // console.log(event.target.value)
     this.setState({ city: event.target.value })
     this.updateCity(event.target.value)
   }
 
   energyUsage = () => {
-    console.log('[App.js] energyUsage')
+    // console.log('[App.js] energyUsage')
     if (this.state.temperature < MEDIUM_ENERGY_USAGE_LIMIT) {
       return classes.LowUsage;
     }
@@ -106,7 +106,7 @@ class App extends Component {
   }
 
   updateTemperature = (temperature) => {
-    console.log('[App.js] updateTemperature')
+    // console.log('[App.js] updateTemperature')
     const data = {
       temperature: temperature
     };
@@ -116,7 +116,7 @@ class App extends Component {
   }
 
   updatePowerSavingMode = (mode) => {
-    console.log('[App.js] updatePowerSavingMode')
+    // console.log('[App.js] updatePowerSavingMode')
     const data = {
       powerSavingMode: mode
     };
@@ -126,7 +126,7 @@ class App extends Component {
   }
 
   updateCity = (city) => {
-    console.log('[App.js] updateCity')
+    // console.log('[App.js] updateCity')
     const data = {
       city: city
     };
@@ -136,7 +136,7 @@ class App extends Component {
   }
 
   render() {
-    console.log('[App.js] render')
+    // console.log('[App.js] render')
 
     // Try assigning energy usage classes dynamically
 

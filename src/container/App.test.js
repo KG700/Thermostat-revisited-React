@@ -51,4 +51,10 @@ describe('<App />', () => {
     expect(wrapper.state().temperature).toEqual(21);
   })
 
+  it('decreases temperature by 1 when downHandler is called', () => {
+    wrapper.setState({ temperature: 20 })
+    wrapper.instance().downHandler();
+    expect(wrapper.state().temperature).toEqual(19);
+  })
+
 })

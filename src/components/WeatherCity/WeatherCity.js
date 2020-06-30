@@ -11,7 +11,7 @@ const UNITS = '&units=metric';
 class WeatherCity extends Component {
 
   constructor(props) {
-    console.log('[WeatherCity.js] constructor')
+    // console.log('[WeatherCity.js] constructor')
     super(props);
     this.state = {
       cityTemperature: null
@@ -29,8 +29,8 @@ class WeatherCity extends Component {
   }
 
   updateCityTemperature = () => {
-    console.log('updating cityTemperature')
-    console.log(URL + this.props.city + TOKEN + UNITS)
+    // console.log('updating cityTemperature')
+    // console.log(URL + this.props.city + TOKEN + UNITS)
 
     axios.get(URL + this.props.city + TOKEN + UNITS)
           .then(response => {
