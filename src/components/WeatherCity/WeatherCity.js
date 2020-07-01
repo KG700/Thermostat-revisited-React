@@ -5,7 +5,7 @@ import classes from './WeatherCity.module.css';
 import axios from '../../axios';
 
 const URL = 'http://api.openweathermap.org/data/2.5/weather?q=';
-const TOKEN = '&appid=a3d9eb01d4de82b9b8d0849ef604dbed';
+const TOKEN = '&appid=' + process.env.REACT_APP_TOKEN;
 const UNITS = '&units=metric';
 
 class WeatherCity extends Component {
